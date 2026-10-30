@@ -2,7 +2,7 @@
 
 ## Repository
 
-A Markdown book manuscript: *The Art of IT Management*. 22 chapters in 7 parts, plus templates and appendices. There is no code, no package manager, no build, no test suite, and no git repository. Do not run `git`, `npm`, `pytest`, or a linter; "verification" means word counts, structural checks, and continuity checks.
+A Markdown book manuscript: *The Art of IT Management*. 22 chapters in 7 parts, plus templates and appendices. There is no code, package manager, build, or test suite. It is a git repository tracking `https://github.com/Aishan-hn/IT_Book` on `main`. "Verification" means word counts, structural checks, and continuity checks — there is no linter to run.
 
 ## Sources of truth
 
@@ -68,6 +68,14 @@ Structural check for a chapter:
 ```powershell
 Select-String -Path book\NN-*.md -Pattern '^## '
 ```
+
+## Version control
+
+- Remote `origin` → `https://github.com/Aishan-hn/IT_Book`, branch `main`, tracking set.
+- Commit at each part boundary with a message naming the part (e.g. `Add Part II: governance and organization`). Push only when asked.
+- `.gitattributes` forces `eol=lf` and `core.autocrlf` is `false` locally; do not let a global setting renormalize the manuscript to CRLF.
+- Identity is repo-local (`Aishan-hn` + GitHub noreply address). Do not change global git config.
+- No `gh` CLI is installed; use `git` directly.
 
 ## Workflow
 
