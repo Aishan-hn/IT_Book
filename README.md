@@ -79,9 +79,10 @@ With [Pandoc](https://pandoc.org) installed:
 pandoc book/00-front-matter.md book/01-*.md book/02-*.md book/03-*.md \
   -o manuscript.md --wrap=none
 
-# Word document with a table of contents
+# Word document with a table of contents (no reference doc is committed;
+# add --reference-doc=your-template.docx if you have a styled template)
 pandoc book/*.md -o "The Art of IT Management.docx" \
-  --toc --toc-depth=2 --reference-doc=reference.docx
+  --toc --toc-depth=2
 ```
 
 For Mermaid rendering in DOCX/PDF, export diagrams to SVG first (`mmdc -i diagram.mmd -o diagram.svg`) and reference the image files.

@@ -14,7 +14,7 @@ A Markdown book manuscript: *The Art of IT Management*. 22 chapters in 7 parts, 
 
 ## Chapter contract
 
-Every chapter uses these eight `##` sections, in order:
+Every chapter uses these ten `##` headings, in order:
 
 1. Learning objectives (4–7 measurable outcomes)
 2. Opening scenario (Meridian, ~300 words)
@@ -23,7 +23,9 @@ Every chapter uses these eight `##` sections, in order:
 5. Case study (real organization: context → what happened → why it matters → transferable lessons)
 6. Templates and tools (one filled-in worked example, not just a blank form)
 7. Pitfalls and checklist (pitfall table + 8–10 checkbox items)
-8. Key takeaways (6–8), Discussion questions (6), Further reading (sourced)
+8. Key takeaways (6–8)
+9. Discussion questions (6)
+10. Further reading (sourced)
 
 Target 4,000–4,800 words per chapter. Do not pad to hit the number.
 
@@ -69,6 +71,8 @@ Structural check for a chapter:
 Select-String -Path book\NN-*.md -Pattern '^## '
 ```
 
+Pandoc is not installed on this machine, so the build commands in `README.md` are documentation rather than runnable steps. They also assume a POSIX shell; PowerShell does not expand `book/*.md` for native commands, so list files explicitly if a build is ever run. Do not install toolchains without being asked.
+
 ## Version control
 
 - Remote `origin` → `https://github.com/Aishan-hn/IT_Book`, branch `main`, tracking set.
@@ -76,6 +80,7 @@ Select-String -Path book\NN-*.md -Pattern '^## '
 - `.gitattributes` forces `eol=lf` and `core.autocrlf` is `false` locally; do not let a global setting renormalize the manuscript to CRLF.
 - Identity is repo-local (`Aishan-hn` + GitHub noreply address). Do not change global git config.
 - No `gh` CLI is installed; use `git` directly.
+- `git` writes progress to stderr, which PowerShell renders as a red error block. Check `$LASTEXITCODE` or `git status` before reporting a failed push.
 
 ## Workflow
 
